@@ -1,0 +1,232 @@
+html, body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #1e2251;
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-section {
+    display: flex;
+    align-items: baseline;
+}
+
+.logo-section img {
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%; /* Ustawienie zaokrąglonych krawędzi */
+}
+
+.text-section {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.contact-section {
+    width: 30%;
+    text-align: right;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f2f2f2;
+}
+
+.left-column {
+    width: 30%;
+    background-color: #454b63;
+    color: #fff;
+    padding: 20px;
+}
+
+.right-column {
+    width: 70%;
+    padding: 20px;
+}
+
+.right-column section {
+    margin: 20px 0;
+}
+
+.right-column h2 {
+    color: #1e2251;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .text-section, .contact-section {
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: left;
+    }
+
+    .main-content {
+        flex-direction: column;
+    }
+
+    .left-column, .right-column {
+        width: 100%;
+    }
+
+    .left-column {
+        background-color: #1e2251;
+        color: #fff;
+        padding: 20px;
+    }
+
+    .right-column section {
+        margin: 20px 0;
+    }
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+main {
+    flex: 1;
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.gallery img {
+    width: calc(33.33% - 10px);
+    margin-bottom: 10px;
+    height: auto;
+}
+
+footer {
+    background-color: #1e2251;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+#advantages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 800px; /* Dostosuj maksymalną szerokość sekcji advantages do preferencji */
+    margin: 0 auto; /* Centrowanie sekcji na stronie */
+}
+
+
+.kreatywnosc {
+    width: 100%; /* Szerokość dla Kreatywności zajmuje całą szerokość sekcji */
+}
+
+.advantage {
+    background-color: white;
+    color: #454b63;
+    padding: 5px;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    width: 48%; /* Zmieniona szerokość prostokątów na około połowę szerokości sekcji */
+    text-align: center;
+    box-sizing: border-box; /* Uwzględnienie padding w obliczeniach szerokości */
+}
+
+#advantages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.advantage {
+    background-color: white;
+    color: #454b63;
+    padding: 5px;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    flex: 0 0 calc(48% - 10px); /* Zastosowano flexbox z elastycznością dla uzyskania różnych szerokości */
+    box-sizing: border-box; /* Uwzględnienie padding w obliczeniach szerokości */
+}
+
+.kreatywnosc {
+    flex: 0 0 100%; /* Szerokość 100% tylko dla Kreatywności */
+}
+
+@media screen and (max-width: 600px) {
+    .advantage {
+        flex: 0 0 100%; /* W jednym wierszu na urządzeniach o szerokości mniejszej niż 600px */
+    }
+}
+
+#programs .progress-bar {
+    background-color: #eee;
+    height: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+	margin:5px;
+}
+
+#programs .progress {
+    height: 100%;
+    width: 0;
+    background-color: #1e2251; /* Kolor paska postępu */
+	text-align:center;
+	font-size:12px;
+}
+
+#skills ul {
+    list-style: none;
+    padding: 0;
+}
+
+#skills li {
+    margin-bottom: 5px;
+    padding-left: 20px; /* Dodatkowy odstęp od lewej strony */
+    position: relative;
+}
+
+#skills li::before {
+    content: "\2022"; /* Znak punktu */
+    color: white; /* Kolor punktu */
+    font-size: 14px; /* Rozmiar czcionki punktu */
+    position: absolute;
+    left: 0;
+}
+
+#project-2 .gallery {
+        display: flex;
+        justify-content: center; /* Wyśrodkowanie zawartości galerii */
+    }
+
+    #project-2 .gallery button {
+        margin: 10px; /* Dodatkowy odstęp dla przycisków */
+    }
