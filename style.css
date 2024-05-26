@@ -2,9 +2,9 @@ html, body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* Zapobiega poziomemu przewijaniu */
 }
 
-/* Globalne ustawienia */
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -17,7 +17,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Dodano flex-wrap */
+    flex-wrap: wrap;
 }
 
 .logo-section {
@@ -30,11 +30,11 @@ header {
     height: auto;
     display: block;
     margin: 0 auto;
-    border-radius: 50%; /* Ustawienie zaokrąglonych krawędzi */
+    border-radius: 50%;
 }
 
 .text-section, .contact-section {
-    max-width: 100%; /* Zapobiega wyjściu poza obszar */
+    max-width: 100%;
 }
 
 .text-section {
@@ -51,7 +51,7 @@ header {
     display: flex;
     justify-content: space-between;
     background-color: #f2f2f2;
-    flex-wrap: wrap; /* Dodano flex-wrap */
+    flex-wrap: wrap;
 }
 
 .left-column {
@@ -150,12 +150,12 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    max-width: 800px; /* Dostosuj maksymalną szerokość sekcji advantages do preferencji */
-    margin: 0 auto; /* Centrowanie sekcji na stronie */
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .kreatywnosc {
-    width: 100%; /* Szerokość dla Kreatywności zajmuje całą szerokość sekcji */
+    width: 100%;
 }
 
 .advantage {
@@ -165,38 +165,15 @@ footer {
     margin: 5px 0;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
-    width: 48%; /* Zmieniona szerokość prostokątów na około połowę szerokości sekcji */
+    flex: 0 0 calc(48% - 10px);
+    box-sizing: border-box;
     text-align: center;
-    box-sizing: border-box; /* Uwzględnienie padding w obliczeniach szerokości */
-}
-
-#advantages {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.advantage {
-    background-color: white;
-    color: #454b63;
-    padding: 5px;
-    margin: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    flex: 0 0 calc(48% - 10px); /* Zastosowano flexbox z elastycznością dla uzyskania różnych szerokości */
-    box-sizing: border-box; /* Uwzględnienie padding w obliczeniach szerokości */
-}
-
-.kreatywnosc {
-    flex: 0 0 100%; /* Szerokość 100% tylko dla Kreatywności */
 }
 
 @media screen and (max-width: 600px) {
     .advantage {
-        flex: 0 0 100%; /* W jednym wierszu na urządzeniach o szerokości mniejszej niż 600px */
-        margin: 5px 0; /* Dodano margines */
+        flex: 0 0 100%;
+        margin: 5px 0;
     }
 }
 
@@ -211,7 +188,7 @@ footer {
 #programs .progress {
     height: 100%;
     width: 0;
-    background-color: #1e2251; /* Kolor paska postępu */
+    background-color: #1e2251;
     text-align: center;
     font-size: 12px;
 }
@@ -223,24 +200,65 @@ footer {
 
 #skills li {
     margin-bottom: 5px;
-    padding-left: 20px; /* Dodatkowy odstęp od lewej strony */
+    padding-left: 20px;
     position: relative;
 }
 
 #skills li::before {
-    content: "\2022"; /* Znak punktu */
-    color: white; /* Kolor punktu */
-    font-size: 14px; /* Rozmiar czcionki punktu */
+    content: "\2022";
+    color: white;
+    font-size: 14px;
     position: absolute;
     left: 0;
 }
 
 #project-2 .gallery {
     display: flex;
-    justify-content: center; /* Wyśrodkowanie zawartości galerii */
-    flex-wrap: wrap; /* Dodano flex-wrap */
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 #project-2 .gallery button {
-    margin: 10px; /* Dodatkowy odstęp dla przycisków */
+    margin: 10px;
+}
+
+/* Stylizacja sekcji */
+.section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin: 20px 0;
+    max-width: 100%; /* Zapobiega wyjściu poza obszar */
+    box-sizing: border-box;
+}
+
+.section h2 {
+    margin-top: 0;
+}
+
+/* Specyficzne sekcje */
+.languages, .skills, .programs, .advantages, .interests, .education, .experience, .projects {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #f9f9f9;
+    max-width: 100%; /* Zapobiega wyjściu poza obszar */
+    box-sizing: border-box;
+}
+
+.languages ul, .skills ul, .programs ul, .advantages ul, .interests ul, .education ul, .experience ul, .projects ul {
+    list-style: none;
+    padding: 0;
+}
+
+.languages li, .skills li, .programs li, .advantages li, .interests li, .education li, .experience li, .projects li {
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .section {
+        padding: 10px;
+    }
+
+    .languages, .skills, .programs, .advantages, .interests, .education, .experience, .projects {
+        padding: 10px;
+    }
 }
