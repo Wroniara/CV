@@ -2,6 +2,11 @@ html, body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* Zapobiega poziomemu przewijaniu */
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
 header {
@@ -12,15 +17,17 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .logo-section {
     display: flex;
     align-items: baseline;
+    width: 20%; /* Szerokość dla lewej części */
 }
 
 .logo-section img {
-    max-width: 50%;
+    max-width: 100%;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -28,12 +35,13 @@ header {
 }
 
 .text-section {
-    width: 100%;
-    margin-bottom: 20px;
+    flex-grow: 1; /* Środkowa sekcja zajmuje najwięcej miejsca */
+    text-align: center;
+    margin: 0 20px; /* Odstępy po bokach */
 }
 
 .contact-section {
-    width: 30%;
+    width: 20%; /* Szerokość dla prawej części */
     text-align: right;
 }
 
@@ -41,6 +49,7 @@ header {
     display: flex;
     justify-content: space-between;
     background-color: #f2f2f2;
+    flex-wrap: wrap;
 }
 
 .left-column {
@@ -48,11 +57,13 @@ header {
     background-color: #454b63;
     color: #fff;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 .right-column {
     width: 70%;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 .right-column section {
@@ -78,7 +89,7 @@ li {
         align-items: flex-start;
     }
 
-    .text-section, .contact-section {
+    .text-section, .contact-section, .logo-section {
         width: 100%;
         margin-bottom: 10px;
         text-align: left;
@@ -137,35 +148,14 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    max-width: 800px; /* Dostosuj maksymalną szerokość sekcji advantages do preferencji */
-    margin: 0 auto; /* Centrowanie sekcji na stronie */
-}
-
-
-.kreatywnosc {
-    width: 100%; /* Szerokość dla Kreatywności zajmuje całą szerokość sekcji */
-}
-
-.advantage {
-    background-color: white;
-    color: #454b63;
-    padding: 5px;
-    margin: 5px 0;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    width: 48%; /* Zmieniona szerokość prostokątów na około połowę szerokości sekcji */
-    text-align: center;
-    box-sizing: border-box; /* Uwzględnienie padding w obliczeniach szerokości */
-}
-
-#advantages {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
     max-width: 800px;
     margin: 0 auto;
 }
 
+.kreatywnosc {
+    width: 100%;
+}
+
 .advantage {
     background-color: white;
     color: #454b63;
@@ -173,17 +163,15 @@ footer {
     margin: 5px 0;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
-    flex: 0 0 calc(48% - 10px); /* Zastosowano flexbox z elastycznością dla uzyskania różnych szerokości */
-    box-sizing: border-box; /* Uwzględnienie padding w obliczeniach szerokości */
-}
-
-.kreatywnosc {
-    flex: 0 0 100%; /* Szerokość 100% tylko dla Kreatywności */
+    flex: 0 0 calc(48% - 10px);
+    box-sizing: border-box;
+    text-align: center;
 }
 
 @media screen and (max-width: 600px) {
     .advantage {
-        flex: 0 0 100%; /* W jednym wierszu na urządzeniach o szerokości mniejszej niż 600px */
+        flex: 0 0 100%;
+        margin: 5px 0;
     }
 }
 
@@ -192,15 +180,16 @@ footer {
     height: 15px;
     border-radius: 5px;
     overflow: hidden;
-	margin:5px;
+    margin: 5px;
 }
 
 #programs .progress {
     height: 100%;
     width: 0;
-    background-color: #1e2251; /* Kolor paska postępu */
-	text-align:center;
-	font-size:12px;
+    background-color: #ff9800; /* Nowy kolor paska postępu */
+    text-align: center;
+    font-size: 12px;
+    color: black; /* Kolor tekstu na pasku */
 }
 
 #skills ul {
@@ -210,23 +199,65 @@ footer {
 
 #skills li {
     margin-bottom: 5px;
-    padding-left: 20px; /* Dodatkowy odstęp od lewej strony */
+    padding-left: 20px;
     position: relative;
 }
 
 #skills li::before {
-    content: "\2022"; /* Znak punktu */
-    color: white; /* Kolor punktu */
-    font-size: 14px; /* Rozmiar czcionki punktu */
+    content: "\2022";
+    color: white;
+    font-size: 14px;
     position: absolute;
     left: 0;
 }
 
 #project-2 .gallery {
-        display: flex;
-        justify-content: center; /* Wyśrodkowanie zawartości galerii */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#project-2 .gallery button {
+    margin: 10px;
+}
+
+/* Stylizacja sekcji */
+.section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin: 20px 0;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.section h2 {
+    margin-top: 0;
+}
+
+/* Specyficzne sekcje */
+.languages, .skills, .programs, .advantages, .interests, .education, .experience, .projects {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #f9f9f9;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.languages ul, .skills ul, .programs ul, .advantages ul, .interests ul, .education ul, .experience ul, .projects ul {
+    list-style: none;
+    padding: 0;
+}
+
+.languages li, .skills li, .programs li, .advantages li, .interests li, .education li, .experience li, .projects li {
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .section {
+        padding: 10px;
     }
 
-    #project-2 .gallery button {
-        margin: 10px; /* Dodatkowy odstęp dla przycisków */
-    } 
+    .languages, .skills, .programs, .advantages, .interests, .education, .experience, .projects {
+        padding: 10px;
+    }
+}
